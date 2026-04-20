@@ -1,4 +1,4 @@
-Experiment: 2
+Experiment: 2 
 
 >>mkdir git\_demo
 >>cd git\_demo
