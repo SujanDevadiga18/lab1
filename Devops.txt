@@ -1,0 +1,249 @@
+Experiment: 2
+
+>>mkdir git\_demo
+>>cd git\_demo
+>>git init
+-
+>>echo "First Line" > file.txt
+>>git status
+>>git add file.txt
+>>git commit -m "initial commit"
+-
+>>git branch feature-branch
+>>git checkout feature-branch
+
+>>echo "Second Line" > file.txt
+>>git status
+>>git add file.txt
+>>git commit -m "Modified line in feature branch"
+-
+>>git checkout master 
+
+>>echo "Third Line" > file.txt
+>>git status
+>>git add file.txt
+>>git commit -m "Modified line in master branch"
+-
+>>git merge feature-branch 
+
+#conflict occurs in file.txt, to resolve this
+
+>>nano file.txt (any editor and remove all the <<<< and ==== in file.txt and save)
+
+>>git add file.txt
+>>git commit -m "Resolved merging"
+
+>>git log --oneline
+
+Optional -- >>git branch -d feature-branch
+
+---
+
+Experiment: 3
+
+#push and pull
+
+>>git init
+>>git clone https://github.com/SujanDevadiga/project\_name.git
+>>cd project\_name
+-
+>>echo "Python file" > main.py
+>>git add main.py
+>>git commit -m "Python file created"
+-
+>>git push -u origin main
+>>git status
+-
+(make some modi. in readme in github)
+
+>>git pull origin main
+
+>>git status
+>>git log --oneline
+
+---
+
+Experiment: 4
+
+#Collaboration using GitHub
+
+>>cd desktop
+>>git init 
+>>git clone <repo\_url>
+>>cd project\_name
+-
+>>touch file.txt
+>>echo "File sample" > file.txt
+>>git status
+>>git add file.txt
+>>git commit -m "Initial commit"
+-
+>>git push origin main
+>>git pull origin main
+-
+>>git branch feature-1
+>>git checkout feature-1
+-
+>>echo "Modification in file" >> file.txt
+-
+>>touch feature.txt
+>>echo "New file created" > feature.txt
+-
+>>git status 
+>>git add .
+>>git commit -m "Modification and creation of file"
+-
+>>git push origin feature-1
+
+Open repository on GitHub
+Click Compare & Pull Request
+Base branch → main
+Compare branch → feature-1
+Add title and description
+Click Create Pull Request
+
+Once code is approved click Merge pull request and Confirm
+
+>>git checkout main
+>>git pull origin main
+-
+>>git log --oneline
+>>git branch -d feature-1
+>>git push origin --delete feature-1
+
+---
+
+Experiment: 5
+
+#Tagging
+
+>>git clone <repo\_url>
+>>cd project\_name
+-
+>>git pull origin main
+-
+>>git tag v1.0
+>>git tag
+>>git show v1.0
+-
+>>git tag -a v1.2 -m "v1.2 Created"
+>>git tag 
+-
+>>git tag -l "v1.\*"
+-
+>>git push origin v1.0
+>>git push --tags
+-
+
+>>git tag -d v1.0
+>>git push origin -d v1.0
+
+---
+GROOVY SCRIPT :
+
+pipeline {
+agent any // Specifies that the pipeline can run on any available agent
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...' // Echos a message to the console
+                // Add your build commands here, e.g., 'sh 'mvn compile''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add your test commands here, e.g., 'sh 'mvn test''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add your deployment commands here
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------
+
+class BankService {
+    public static void main(String[] args) {
+        int balance = 1000;
+        int deposit = 500;
+        int withdraw = 300;
+
+        balance = balance + deposit;
+        balance = balance - withdraw;
+
+        System.out.println("Balance = " + balance);
+    }
+}
+-------------------------------------------------------
+
+class SquareArea {
+    public static void main(String[] args) {
+        int side = 5;
+        int area = side * side;
+        System.out.println("Area = " + area);
+    }
+}
+
+--------------------------------------------------
+class SimpleInterest {
+    public static void main(String[] args) {
+        int p = 1000, r = 5, t = 2;
+        int si = (p * r * t) / 100;
+        System.out.println("Simple Interest = " + si);
+    }
+}
+--------------------------------------------
+
+class PrimeNumber {
+    public static void main(String[] args) {
+        int n = 7;
+        int count = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0)
+                count++;
+        }
+
+        if (count == 2)
+            System.out.println("Prime Number");
+        else
+            System.out.println("Not Prime");
+    }
+}
+------------------------------------------
+class AlternatePrime {
+    public static void main(String[] args) {
+        int flag = 1;
+
+        for (int n = 2; n <= 50; n++) {
+            int count = 0;
+
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0)
+                    count++;
+            }
+
+            if (count == 2) {
+                if (flag == 1) {
+                    System.out.print(n + " ");
+                    flag = 0;
+                } else {
+                    flag = 1;
+                }
+            }
+        }
+    }
+}
+-------------------------------------------
+class StringLength {
+    public static void main(String[] args) {
+        String s = "Hello";
+        System.out.println("Length = " + s.length());
+    }
+}
+-------------------------------------------
