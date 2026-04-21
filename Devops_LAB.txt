@@ -135,6 +135,8 @@ Replace the jacoco plugin and delete Plugin management
 run:
 mvn clean test 
 Open site folder in target and move to index.html and open it.
+
+mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test org.jacoco:jacoco-maven-plugin:report
 -----------------------------------
 
 EXP-15
